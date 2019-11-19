@@ -1,0 +1,3 @@
+[[exporters]]
+id = "latency"
+className = "io.zeebe.exporter.latency.LatencyExporter"

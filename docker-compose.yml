@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  zeebe:
+    image: camunda/zeebe:${ZEEBE_VERSION:-0.22.0-alpha1}
+    container_name: zeebe
+    ports:
+      - "26500:26500"
+      - "8090:8090"
+      - "5005:5005"
+    environment:
+      - JAVA_TOOL_OPTIONS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+    volumes:
+      - "./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml"
+      - "./target/zeebe-latency-exporter-1.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-latency-exporter.jar"

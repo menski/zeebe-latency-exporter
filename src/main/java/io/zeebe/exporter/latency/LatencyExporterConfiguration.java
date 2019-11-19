@@ -1,13 +1,10 @@
 package io.zeebe.exporter.latency;
 
-import java.time.Duration;
-
 public class LatencyExporterConfiguration {
 
   private String host = "0.0.0.0";
   private int port = 8090;
   private int backlog = 100;
-  private long maxLatencyNs = Duration.ofMinutes(1).toNanos();
 
   public String getHost() {
     return host;
@@ -36,15 +33,6 @@ public class LatencyExporterConfiguration {
     return this;
   }
 
-  public long getMaxLatencyNs() {
-    return maxLatencyNs;
-  }
-
-  public LatencyExporterConfiguration setMaxLatencyNs(long maxLatencyNs) {
-    this.maxLatencyNs = maxLatencyNs;
-    return this;
-  }
-
   @Override
   public String toString() {
     return "LatencyExporterConfiguration{"
@@ -55,8 +43,6 @@ public class LatencyExporterConfiguration {
         + port
         + ", backlog="
         + backlog
-        + ", maxLatencyNs="
-        + maxLatencyNs
         + '}';
   }
 }
